@@ -1,0 +1,372 @@
+@charset "UTF-8";/* reset */
+* { margin: 0; padding: 0; } 
+
+ul,
+li { margin: 0; padding: 0; list-style: none; } 
+
+a { text-decoration: none; } 
+
+a img { border: 0; } 
+
+/* 가려줌 */
+.blind { position: absolute; top: 0; left: 0; text-indent: -99999999999999px; width: 0; height: 0; font-size: 0; } 
+
+body { font-family: 'Sarabun'; background-color: #333; } 
+
+#wrap { width: 100%; background: url("../images/bg-main.png")no-repeat center/cover; } 
+
+/* ===========================================================
+ header
+=============================================================*/
+#wrap header { width: 100%; height: 100px; background-color: #fff; border-bottom: 1px solid #aaa; position: fixed; z-index: 9; overflow: hidden;} 
+#wrap header h1.logo { position: absolute; left: 30px; top: 50%; transform: translateY(-50%); } 
+#wrap header h1.logo img { width: 110px; display: block; } 
+
+/* pc menu */
+#wrap header ul.menu { width: 500px; position: absolute; bottom: 25px; left: 50%; transform: translateX(-50%); display: flex; } 
+#wrap header ul.menu li { width: 33.33%; text-align: center; height: 50px; line-height: 50px; } 
+#wrap header ul.menu li a { display: block; color: #333; font-weight: bold; } 
+#wrap header ul.menu li a:hover,
+#wrap header ul.menu li a:focus { color: #eb150a; } 
+
+/* mobile menu - x, toggle */
+#wrap header ul.m_menu { display: none; } 
+/* x btn */
+#wrap header ul.m_menu i { position: absolute; right: -25px; top: 5px; } 
+
+/* toggle (햄버거) btn */
+#wrap header ul.rightmenu li:nth-child(3) { display: none; } 
+
+/* right menu */
+#wrap header ul.rightmenu { display: flex; gap: 30px; position: absolute; right: 30px; top: 50%; transform: translateY(-50%); width: 150px; height: 50px; } 
+
+
+/* ===========================================================
+ main - 5단 PC구조 
+=============================================================*/
+#wrap main section#mainImg{width: 100%;height: 1000px;position: relative;overflow: hidden;}
+#wrap main section#mainImg .main_center{width: 100%;height: 1000px;position: relative;}
+
+#wrap main section#mainImg .main_center ul.center_bg{width: 100%;height: 100%}
+#wrap main section#mainImg .main_center ul.center_bg li{position: absolute;}
+#wrap main section#mainImg .main_center ul.center_bg li:nth-child(1){right: 0;top: -100px;}
+#wrap main section#mainImg .main_center ul.center_bg li:nth-child(2){right: 25;top: 80px;}
+#wrap main section#mainImg .main_center ul.center_bg li:nth-child(3){bottom: 250px;left: 40%;}
+#wrap main section#mainImg .main_center ul.center_bg li:nth-child(4){bottom: 60px;left: 2%;}
+#wrap main section#mainImg .main_center ul.center_bg li:nth-child(5){right: -50px;top: 10px;}
+#wrap main section#mainImg .main_center ul.center_bg li:nth-child(6){left: 0;bottom: -60px;}
+#wrap main section#mainImg .main_center ul.center_bg li:nth-child(7){position: fixed;
+    left: 50%;top: 48%;transform: translate(-50%,-50%);}
+#wrap main section#mainImg .main_center ul.center_bg{width: 100%;height: auto;}
+
+/* 육각형 돌리기 */
+/* 육각형 돌리기 - @keyframes */
+.hexagon {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 700px; 
+    height: 700px;
+ } 
+ .hexagon ul {
+    width: 100%;
+    height: 100%;
+ }
+ .hexagon ul li {
+    position: absolute;
+    width: 80%;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* 기준점 중앙으로 배치 */
+    transform-origin: center;
+
+ }
+
+.hexagon ul li img {display: block;width: 80%;height: auto;margin: 0 auto;
+/* display: none; */
+}
+
+/* g회색 육가형 */
+.hexagon ul li.hexagon_g{    animation: hg 20s infinite linear;}
+
+@keyframes hg {
+0%{
+    transform: translateX(-50%) rotate(0deg);}
+100%{transform: translateX(-50%) rotate(359deg);}
+
+}
+/* 빨간 육각형 */
+.hexagon ul li.hexagon_r{    animation: hr 18s infinite linear;}
+
+@keyframes hr {
+0%{
+    transform: translateX(-50%) rotate(0deg);}
+100%{transform: translateX(-50%) rotate(-359deg);}
+
+}
+/* center */
+.hexagon p{position: absolute;top: 45%;left: 50%;transform: translate(-50%,-50%);
+text-align: center;font-size: 150px;font-weight: bold;color: #eb150a;width: 100%;overflow: hidden;width: 100%;}
+.hexagon p span{font-size: 22px;color: #333;display: block; overflow: hidden;}
+
+/* 레드카펫 */
+#redcarpet{width: 100%;height: 750px;position: relative;z-index: 2;}
+    /* 왼쪽 투명 */
+ #redcarpet .leftside{width: 100%; height: 500px;position: absolute;top: -25%;
+    left: 0;background-color: rgba(255, 0, 0, 0.2);transform: skewY(15deg);}
+    /* 오른쪽 빨강 */
+#redcarpet .rightside{width: 100%; height: 800px;position: absolute;top: -28%;
+    right: 0;;background-color: #eb150a;transform: skewY(-15deg);
+/* display: none; */
+}
+
+    /* 서비스 제목 */
+#redcarpet .rightside h2.service{
+    transform: skewY(15deg) translateX(-50%);position: absolute;width: 340px;
+    top: 20%;left: 50%;font-size: 54px;font-weight: bold;text-align: center;color: #fff;}
+    /* 서비스 제목 라인 */
+#redcarpet .rightside h2.service::before{content: ''; display: block;width: 200px;height: 2px;
+    background-color: #fff;left: -60%;top: 55%;position: absolute;}
+#redcarpet .rightside h2.service::after{content: ''; display: block;width: 200px;height: 2px;
+        background-color: #fff;right: -60%;top: 55%;position: absolute;}
+/* 서비스 4종 배치 */
+#redcarpet .rightside ul{position: absolute;
+        top: 50%;left: 50%;transform: skewY(15deg) translateX(-50%);width: 80%;height: 400px;}
+#redcarpet .rightside ul li{float: left;    width: 22%;margin-left: 3%;text-align: center;color: #fff;    ;}
+#redcarpet .rightside ul li a{color: #fff;}
+#redcarpet .rightside ul li a img {width: 50%;height: auto;display: block;
+    margin: 0 auto 10px; /* 상, 좌우, 하 */
+}
+#redcarpet .rightside ul li a strong{    font-size: 20px; letter-spacing: -1px;}
+#redcarpet .rightside ul li a p{font-size: 13px; margin: 5px 0 15px;color: rgba(255, 255, 255, 0.5);}
+#redcarpet .rightside ul li a span{font-size: 12px;line-height: 1.6; }
+
+
+/* 포트폴리오 */
+
+section#Portfolio{width: 100%;height: auto;background-color: #fff;position:
+    relative;margin-top: -800px;
+    /* padding: 200px 0 0; */
+    z-index: 1;overflow: hidden;}
+section#portfolio .cover {width: 100%;height: 80px;margin-bottom: 20px;}
+section#Portfolio .cover h2.pf{position: absolute;left: 50%;
+    transform: translateX(-50%);margin: 0 auto;width: 340px;
+    font-size: 44px;font-weight: bold;text-align: center;color: #333;
+}
+section#Portfolio .cover h2.pf::before{content: '';display: block;position: absolute;
+    top: 55%;left: -60%;width: 200px;height: 2px;background-color: #333;}
+section#Portfolio .cover h2.pf::after{content: '';display: block;position: absolute;
+    top: 55%;right: -60%;width: 200px;height: 2px;background-color: #333;}
+
+section#Portfolio .port_cover{
+    width: 100%;
+    position: relative;z-index: 1;display: flex;justify-content: center;
+    padding-top: 150px;
+    padding-bottom: 200px;
+}
+section#Portfolio .port_cover ul.cf{
+    display: flex;flex-wrap: wrap;/*여러 행으로 배치*/
+    width: 100%;max-width: 1400px;justify-content: space-between;text-align: center;
+}
+/* li 단설정 pc 5단 */
+section#Portfolio .port_cover ul.cf li{width: calc(20% - 10px);    margin-bottom: 50px;}
+
+section#Portfolio .port_cover ul.cf li a img {width: 100%;    height: auto;}
+
+
+.port_cover ul li p {
+    font-size: 14px;
+    margin-top: 20px;
+    font-weight: bold;
+    text-overflow: ellipsis; /* 길경우 ... */
+    white-space: nowrap; /* 추가 줄바꿈 제어*/
+    word-break:keep-all; /* 단어 단위로 줄바꿈*/
+    overflow: hidden;
+}
+
+section#Portfolio .port_cover ul.cf li span.gray {
+    color: #aaa;
+    font-size: 13px;
+}
+
+
+section#Portfolio ul.port_bg{
+    width: 100%;height: 100%;position: relative;
+}
+section#Portfolio ul.port_bg li{position: absolute;}
+section#Portfolio ul.port_bg li:nth-child(1){top: 0;left: 0;}
+section#Portfolio ul.port_bg li:nth-child(2){top: 350px;left: 50px;}
+section#Portfolio ul.port_bg li:nth-child(3){right: 10%;bottom: 0%;}
+
+/* <!-- 회사연락처-프로젝트 요청서 다운받기 --> */
+section#redcarpet2{width: 100%;height: 430px;position: relative;z-index: 5;
+margin-top: -200px;
+clear: both;/* float해제 */
+}
+section#redcarpet2 .redside{position: absolute;top: 25%;left: 0;
+    width: 100%;height: 500px;background-color: rgba(255, 0, 0, 0.2);
+transform: skewY(10deg);}
+section#redcarpet2 .redrightside{position: absolute;top: 12%;right: 0;
+    width: 100%;height: 600px;background-color: #eb150a;
+transform: skewY(-15deg);}
+/* section#redcarpet2 .redrightside .contactus{transform: skewY(15deg);} */
+
+section#redcarpet2 .redrightside .contactus h2.contact{transform: skewY(15deg) translate(-50%);
+    position: absolute;
+    width: 340px;top: 30%;left: 50%;
+    font-size: 54px;font-weight: bold;text-align: center;color: #fff;
+}
+
+section#redcarpet2 .redrightside .contactus h2.contact::before{content: '';display: block;position: absolute;
+    top: 55%;left: -60%;width: 200px;height: 2px;background-color: #fff;}
+section#redcarpet2 .redrightside .contactus h2.contact::after{content: '';display: block;position: absolute;
+    top: 55%;right: -60%;width: 200px;height: 2px;background-color: #fff;}
+
+/* 주소 */
+section#redcarpet2 .redrightside .contactus .add{transform:translate(-50%,-50%) skewY(15deg);
+    position: absolute;top: 55%;left: 50%;max-width: 600px;height: 150px;
+        /* border:1px solid yellow; */
+}
+section#redcarpet2 .redrightside .contactus .add ul{color: #fff;width: 100%;
+    margin-top: 20px;line-height: 1.6; font-size: 16px;}
+section#redcarpet2 .redrightside .contactus .add ul li{float: left;margin-right: 20px;}
+section#redcarpet2 .redrightside .contactus .add ul li strong{font-size: 18px;} 
+section#redcarpet2 .redrightside .contactus .add ul li a{color: #fff;}
+section#redcarpet2 .redrightside .contactus .add ul li a:hover{color: rgba(255, 255, 255, 0.7);}
+
+/* 프로젝트 요청 */
+section#redcarpet2 .redrightside .pro{transform:translate(-50%,-50%) skewY(15deg);
+    position: absolute;top: 70%;left: 50%;width: 230px;height: 50px; 
+    border: #fff 3px solid; color: #fff;
+}
+section#redcarpet2 .redrightside .pro i {position: absolute;left: 7%;top: 50%;
+    transform: translateY(-50%);font-size: 30px;
+}
+section#redcarpet2 .redrightside .pro a {color: #fff; display: block;text-align: right;
+    width: 100%;height: 100%;line-height: 50px;padding-right: 25px;box-sizing: border-box;
+}
+/* 지도 */
+#map_cover{
+    position: relative;width: 100%;height: 800px;z-index:-1 ;top: 400px;
+
+}
+#map_cover .map_view{
+    width: 100%;height: 100%;
+}
+#map_cover .map_view iframe{
+    width: 100%;height: 100%;
+}
+
+/* ===========================================================
+ footer
+=============================================================*/
+
+footer{width: 100%;background-color: #333;color: #fff;text-align: center;padding-bottom: 25px;}
+footer p{ line-height: 1.6;font-size: 12px;margin-top: 25px;}
+footer p a{color: #fff;text-decoration:underline;}
+footer p a:last-child{color: #eb150a;}
+/* ===========================================================
+ 최대 1400px 
+=============================================================*/
+@media (max-width:1400px) {/* pc menu - 가려줌 */
+ #wrap header ul.menu,
+ #wrap header ul.rightmenu li:nth-child(1),
+ #wrap header ul.rightmenu li:nth-child(2) { display: none; } 
+ 
+ #wrap header ul.rightmenu li:nth-child(3) { display: block; } 
+ #wrap header ul.rightmenu li:nth-child(3) a i { font-size: 30px; color: #eb150a; position: absolute; top: 10px; right: 0; } 
+ /* x버튼과 모바일 메뉴 */
+ul.m_menu {
+width: 100%;
+height: 100%;
+position: fixed;
+top: 0; font-weight: bold;background-color: rgba(255, 255, 255, 0.6);
+}
+ul.m_menu li {position: absolute;top: 50%;left: 50%;
+    transform: translate(-50%,-50%);font-size: 33px;z-index: 6;
+}
+ul.m_menu li a{display: block;color: #333;}
+ul.m_menu li a:hover,
+ul.m_menu li a:focus{color: #eb150a;}
+ul.m_menu li:nth-child(1){top: 25%;}
+ul.m_menu li:nth-child(2){top: 40%;}
+ul.m_menu li:nth-child(3){top: 55%;}
+ul.m_menu li:nth-child(4){top: 30px;left: auto;right: 55px;
+    transform: translateX(0%); } 
+    ul.m_menu li:nth-child(4) a{display: block;width: 100%;height: 100%;color: #eb150a;}
+
+
+
+}
+
+
+
+
+/* ===========================================================
+ 4단 - 최대 1250px 
+=============================================================*/
+@media (max-width:1250px){
+    /* 레드카펫 서비스 -2단 */
+    #redcarpet .rightside ul{top: 40%;height: 500px;}
+    
+    #redcarpet .rightside ul li {width: 50%;height: 240px; margin-left: 0;margin-bottom: 10px;}
+    #redcarpet .rightside ul li a img{width: 150px;}
+    #redcarpet .rightside ul li a span{display: none;}
+
+
+    section#Portfolio .port_cover ul.cf{width: 93%;}
+    /* li 단설정 pc 5단 */
+    section#Portfolio .port_cover ul.cf li{width: calc(25% - 10px);}
+
+    
+    section#Portfolio .port_cover ul li p {
+        font-size: 13px;
+    }
+    section#Portfolio .port_cover ul li span.gray {display: none;}
+    
+
+}
+/* ===========================================================
+ 3단 - 최대 810px
+=============================================================*/
+@media (max-width:810px) {
+    /* 육각형 사이즈 변경 */
+    .hexagon{width: 500px;top: 60%;}
+    .hexagon p{font-size: 80px;top: 36%;}
+    .hexagon p span{font-size: 16px;}
+    /* 레드카펫 */
+    #redcarpet .rightside h2.service::before,
+    #redcarpet .rightside h2.service::after,
+    section#Portfolio .cover h2.pf::before,
+    section#Portfolio .cover h2.pf::after,
+    section#redcarpet2 .redrightside .contactus h2.contact::before,
+    section#redcarpet2 .redrightside .contactus h2.contact:after{display: none;}
+
+
+    section#Portfolio .port_cover ul.cf li{width: calc(33.33% - 10px);}
+    
+}
+
+
+/* ===========================================================
+ 2단 - 최대 650px
+=============================================================*/
+@media (max-width:650px) {
+section#Portfolio .port_cover ul.cf li{width: calc(50% - 10px);}
+section#redcarpet2 .redrightside .contactus .add ul li{float: none;font-size: 13px;text-align: center;}
+section#redcarpet2 .redrightside .pro{top: 77%;}
+
+
+
+#redcarpet .rightside h2.service{margin-top: -30px;}
+#redcarpet .rightside ul{margin-top: -50px;}
+
+#redcarpet .rightside h2.service,
+section#Portfolio .cover h2.pf,
+section#redcarpet2 .redrightside .contactus h2.contact{font-size: 40px;}
+
+footer{ overflow: hidden;}
+footer .footer_cover p{font-size: 13px;}
+}
